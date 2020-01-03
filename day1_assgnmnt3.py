@@ -2,20 +2,19 @@
 #Start writing your code here
 class Customer:
     
-    def __init__(self,name,total_amt):
+    def __init__(self,name,total_amount):
         self.customer_name=name
-        self.bill_amt=total_amt
+        self.bill_amount=total_amount
     
-    def pays_bill(self,amt):
-        print(self.customer_name," pays", amt)
+    def pays_bill(self,amount):
+        print(self.customer_name," pays", amount)
     
     def purchases(self):
-        self.bill_amt=self.bill_amt-(self.bill_amt*0.05)
-        self.pays_bill(self.bill_amt)
-        
+        discount=self.bill_amount*0.05
+        final_amount=self.bill_amount-discount
+        self.pays_bill(final_amount)
         
 c1=Customer("Vetri",20000)
 c2=Customer("Raam",4555)
 c1.purchases()
 c2.purchases()
-        
