@@ -47,10 +47,6 @@ class Vehicle:
         
 v1=Vehicle()
 v1.set_vehicle_id(1111)
-v1.set_vehicle_id("Four Wheeler")
+v1.set_vehicle_type("Four Wheeler")
 v1.set_vehicle_cost(105000)
 v1.display_vehicle_details()
-        
-        
-
-        
