@@ -2,9 +2,9 @@
 #Start writing your code here
 class Customer:
     
-    def __init__(self,name,total_amount):
-        self.customer_name=name
-        self.bill_amount=total_amount
+    def __init__(self):
+        self.customer_name=None
+        self.bill_amount=0
     
     def pays_bill(self,amount):
         print(self.customer_name," pays", amount)
@@ -14,7 +14,7 @@ class Customer:
         final_amount=self.bill_amount-discount
         self.pays_bill(final_amount)
         
-c1=Customer("Vetri",20000)
-c2=Customer("Raam",4555)
+c1=Customer()
+c2=Customer()
 c1.purchases()
 c2.purchases()
