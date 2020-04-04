@@ -10,9 +10,10 @@ def purchase_mobile(price,brand):
     
 def purchase_shoe(price,material):
     if material == "leather":
-         total_price = price + price * 5 / 100
+         tax = 5
     else:
-        total_price = price + price * 2 / 100
+        tax = 2
+    total_price = price + price * tax / 100
     print("Total price of shoe is "+str(total_price))
     
 
