@@ -28,19 +28,17 @@ class Vehicle:
         return self.__premium_amount
     
     def calculate_premium(self):
-        if self.__vehicle_type=="TwoWheeler":
-            tmp=self.__vehicle_cost*0.02
-            return tmp
-        elif self.__vehicle_type=="FourWheeler":
-            tmp=self.__vehicle_cost*0.05
-            return tmp
+        if self.__vehicle_type=="Two Wheeler":
+            self.__premium_amount=self.__vehicle_cost*0.02
+            return self.__premium_amount
+        elif self.__vehicle_type=="Four Wheeler":
+            self.__premium_amount=self.__vehicle_cost*0.06
+            return self.__premium_amount
         else:
             return 1
     
     def display_vehicle_details(self):
-        tmp=self.calculate_premium()
-        if tmp!=1:
-            self.__premium_amount=tmp
+        if self.calculate_premium()!=1:
             print("Vehicle details")
             print("Vehicle ID:",self.__vehicle_id, "\nVehicle Type:",self.__vehicle_type, "\nVehicle Cost:", self.__vehicle_cost, "\nPremium amount", self.__premium_amount)
         else:
@@ -48,6 +46,6 @@ class Vehicle:
         
 v1=Vehicle()
 v1.set_vehicle_id(1111)
-v1.set_vehicle_type("TwoWheeler")
-v1.set_vehicle_cost(50000)
+v1.set_vehicle_type("Four Wheeler")
+v1.set_vehicle_cost(105000)
 v1.display_vehicle_details()
