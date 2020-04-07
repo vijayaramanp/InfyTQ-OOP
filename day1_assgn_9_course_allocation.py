@@ -23,13 +23,10 @@ class Student:
     def get_age(self):
         return self.__age
     
-    def set_course_id(self, course_id):
-        self.__course_id=course_id
+    
     def get_course_id(self):
         return self.__course_id
         
-    def set_fees(self,fees):
-        self.__fees=fees
     def get_fees(self):
         return self.__fees
         
@@ -61,6 +58,7 @@ class Student:
             if self.__marks > 85:
                 self.__fees=self.__fees - (self.__fees)*25/100
             return True
+        
         elif course_id==1002:
             self.__course_id=course_id
             self.__fees=15500.0
