@@ -10,4 +10,7 @@ class Classroom:
         else:
             return -1 
                 
-print(Classroom.search_classroom("l135"))
+if Classroom.search_classroom("l135")=="Found":
+    print("Classroom Found")
+else:
+    print("Classroom not Found")
