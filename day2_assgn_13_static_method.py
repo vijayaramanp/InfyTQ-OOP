@@ -5,10 +5,9 @@ class Classroom:
     
     @staticmethod
     def search_classroom(class_room):
-        for cls in Classroom.classroom_list:
-            if cls.lower()==class_room.lower():
-                return "Found"
-            else:
-                return -1 
+        if class_room.upper() in Classroom.classroom_list:
+            return "Found"
+        else:
+            return -1 
                 
 print(Classroom.search_classroom("l135"))
