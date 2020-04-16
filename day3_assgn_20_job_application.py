@@ -32,4 +32,7 @@ class Applicant:
             return -1
 
 a1=Applicant("Vetri")
-a1.apply_for_job("A")
+if a1.apply_for_job("A") !=-1:
+    print(a1.get_applicant_id(),a1.get_applicant_name(),a1.get_job_band())
+else:
+    print("Invalid Job band")
