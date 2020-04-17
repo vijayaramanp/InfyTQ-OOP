@@ -36,49 +36,31 @@ class Multiplex:
             if Multiplex.__list_last_seat_number[0] != None:
                 tmp=Multiplex.__list_last_seat_number[0].split('-')
                 last_seat=int(tmp[1])
-                seat_list=[]
-                for i in range(1,number_of_tickets+1):
-                    last_seat+=1 
-                    seat_number="M1-"+str(last_seat)
-                    seat_list.append(seat_number)
-                Multiplex.__list_last_seat_number[0]=seat_number
-                Multiplex.__list_total_tickets[0] -= number_of_tickets
-                return seat_list
             else:
-                seat_list=[]
                 last_seat=0 
-                Multiplex.__list_last_seat_number[0]=0
-                for i in range(1,number_of_tickets+1):
-                    last_seat+=1 
-                    seat_number="M1-"+str(last_seat)
-                    seat_list.append(seat_number)
-                Multiplex.__list_last_seat_number[0]=seat_number
-                Multiplex.__list_total_tickets[0] -= number_of_tickets
-                return seat_list
+            for i in range(1,number_of_tickets+1):
+                last_seat+=1 
+                seat_number="M1-"+str(last_seat)
+                seat_list.append(seat_number)
+            Multiplex.__list_last_seat_number[0]=seat_number
+            Multiplex.__list_total_tickets[0] -= number_of_tickets
+            return seat_list
+            
                 
         elif Multiplex.__list_movie_name[movie_index]=="movie2":
             if Multiplex.__list_last_seat_number[1] != None:
                 tmp=Multiplex.__list_last_seat_number[1].split('-')
                 last_seat=int(tmp[1])
-                seat_list=[]
-                for i in range(1,number_of_tickets+1):
-                    last_seat+=1 
-                    seat_number="M2-"+str(last_seat)
-                    seat_list.append(seat_number)
-                Multiplex.__list_last_seat_number[1]=seat_number
-                Multiplex.__list_total_tickets[1] -= number_of_tickets
-                return seat_list
             else:
-                seat_list=[]
                 last_seat=0 
-                Multiplex.__list_last_seat_number[1]=0
-                for i in range(1,number_of_tickets+1):
-                    last_seat+=1 
-                    seat_number="M2-"+str(last_seat)
-                    seat_list.append(seat_number)
-                Multiplex.__list_last_seat_number[1]=seat_number
-                Multiplex.__list_total_tickets[1] -= number_of_tickets
-                return seat_list
+            for i in range(1,number_of_tickets+1):
+                last_seat+=1 
+                seat_number="M2-"+str(last_seat)
+                seat_list.append(seat_number)
+            Multiplex.__list_last_seat_number[1]=seat_number
+            Multiplex.__list_total_tickets[1] -= number_of_tickets
+            return seat_list
+            
                 
 booking1=Multiplex()
 status=booking1.book_ticket("movie1",10)
