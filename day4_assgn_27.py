@@ -18,7 +18,8 @@ class ThemePark:
     def get_amount(game_input):
         return ThemePark.dict_of_games[game_input][0]
         #Return the price/ride for the given game_input
-#print(ThemePark.validate_game("Game2"))
+#print(ThemePark.get_amount("Game2"))
+
 #This class represents ticket
 class Ticket:
     __ticket_count=200
@@ -30,19 +31,13 @@ class Ticket:
         self.__ticket_id=Ticket.__ticket_count
         #Auto-generate ticket_id starting from 201
     def calculate_amount(self, list_of_games):
-        flag=0
-        tmp=0
         for game in list_of_games:
             if ThemePark.validate_game(game):
-                tmp=tmp+ThemePark.get_amount(game)
+                self.__ticket_amount+=ThemePark.get_amount(game)
             else:
-                flag=1 
-                break
-        if flag==0:
-            self.__ticket_amount=tmp 
-            return True 
-        else:
-            return False
+                self.__ticket_amount=0 
+                return False
+        return True 
         '''Validate the games in the list_of_games.
         If all games are valid, calculate total ticket amount and assign it to attribute, ticket_amount and return true. Else, return false'''
     def get_ticket_id(self):
@@ -54,7 +49,7 @@ class Customer:
     def __init__(self,name,list_of_games):
         self.__name=name
         self.__list_of_games=list_of_games
-        self.__ticket=0
+        self.__ticket=Ticket()
         self.__points_earned=0
         self.__food_coupon="No"
         
@@ -71,12 +66,10 @@ class Customer:
             self.__food_coupon="Yes"
             
     def book_ticket(self):
-        t1=Ticket()
-        if t1.calculate_amount(self.__list_of_games):
-            t1.generate_ticket_id()
+        if Ticket.calculate_amount(self.__ticket,self.__list_of_games):
+            Ticket.generate_ticket_id(self.__ticket)
             self.play_game()
             self.update_food_coupon()
-            
             return True 
         else:
             return False 
@@ -95,5 +88,5 @@ class Customer:
         
 cust1=Customer("Vetri",["Game1","Game2"])
 if cust1.book_ticket():
-    print(cust1.get_name(),cust1.get_list_of_games(),cust1.get_ticket(),cust1.get_points_earned(),cust1.get_food_coupon())
+    print(cust1.get_name(),cust1.get_list_of_games(),cust1.get_ticket().get_ticket_id(),cust1.get_ticket().get_ticket_amount(),cust1.get_points_earned(),cust1.get_food_coupon())
 '''Represent customers and display all details of the customer, if he is able to book the ticket and play the game. Else, display appropriate error message '''
