@@ -16,6 +16,7 @@ class DirectToHomeService(metaclass=ABCMeta):
     @abstractmethod
     def calculate_monthly_rent(self):
         pass
+
     
 class BasePackage(DirectToHomeService):
     def __init__(self,consumer_name,base_pack_name,subscription_period):
@@ -27,7 +28,7 @@ class BasePackage(DirectToHomeService):
         return self.__base_pak_name
     def get_subscription_period(self):
         return self.__subscription_period
-        
+    
     def validate_base_pack_name(self):
         if self.__base_pack_name=="Silver" or self.__base_pack_name=="Gold" or self.__base_pack_name=="Platinum":
             return True
@@ -36,12 +37,10 @@ class BasePackage(DirectToHomeService):
             self.__base_pack_name="Silver"
             print("Base package name is incorrect, set to Silver")
             return True
-
-    
+        
     def calculate_monthly_rent(self):
         if self.__subscription_period>=1 and self.__subscription_period<=24:
             if self.validate_base_pack_name() is True:
-                
                 if self.__subscription_period>12:
                     if self.__base_pack_name=="Silver":
                         discount=350
@@ -68,3 +67,7 @@ class BasePackage(DirectToHomeService):
                 return -1
         else:
             return -1
+            
+obj1=BasePackage("Vetri","Platinum",4,)
+res=obj1.calculate_monthly_rent()
+print(res)
