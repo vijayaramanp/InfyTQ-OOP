@@ -25,7 +25,7 @@ class BasePackage(DirectToHomeService):
         super().__init__(consumer_name)
         
     def get_base_pack_name(self):
-        return self.__base_pak_name
+        return self.__base_pack_name
     def get_subscription_period(self):
         return self.__subscription_period
     
